@@ -1,8 +1,28 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Red_Hat_Text, Red_Hat_Mono, Red_Hat_Display } from "next/font/google";
+import { Flex, Theme, ThemePanel } from "@radix-ui/themes";
+import "normalize.css";
+import "@radix-ui/themes/styles.css";
 import "./globals.css";
+import React from "react";
+import { NavigationBar } from "@/components/NavigationBar/NavigationBar";
+import { clsx } from "clsx";
+import { SideBar } from "@/components/SideBar/SideBar";
 
-const inter = Inter({ subsets: ["latin"] });
+const mainFont = Red_Hat_Text({
+  subsets: ["latin"],
+  variable: "--font-main",
+});
+
+const displayFont = Red_Hat_Display({
+  subsets: ["latin"],
+  variable: "--font-display",
+});
+
+const monoFont = Red_Hat_Mono({
+  subsets: ["latin"],
+  variable: "--font-main-mono",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +36,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body
+        className={clsx(
+          mainFont.variable,
+          monoFont.variable,
+          displayFont.variable,
+        )}
+      >
+        <Theme
+          accentColor="jade"
+          grayColor="slate"
+          radius="large"
+          hasBackground={false}
+        >
+          <NavigationBar />
+          <SideBar />
+          {children}
+        </Theme>
+      </body>
     </html>
   );
 }

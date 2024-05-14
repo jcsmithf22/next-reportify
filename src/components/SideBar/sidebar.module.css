@@ -1,0 +1,23 @@
+.Link {
+    cursor: var(--cursor-button);
+    color: var(--gray-12);
+    border-radius: var(--radius-6);
+    font-size: var(--font-size-2);
+
+    &:hover {
+        background: var(--accent-a3);
+    }
+}
+
+.ActiveLink {
+    background: var(--accent-a4);
+
+    &:hover {
+        background: var(--accent-a4);
+    }
+}
+
+.SideBarRoot {
+    background: #fff;
+    border-right: 1px solid var(--gray-6);
+}

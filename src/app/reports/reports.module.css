@@ -1,0 +1,17 @@
+.ActionCell {
+    vertical-align: middle;
+    line-height: 12px;
+}
+
+.TableRoot {
+    white-space: nowrap;
+    overflow: auto;
+}
+
+.TableHeader {
+    --table-row-background-color: #fff;
+}
+
+.TableHeader th {
+    font-weight: 600;
+}

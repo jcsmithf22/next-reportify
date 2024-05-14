@@ -1,0 +1,6 @@
+.NavigationBarRoot {
+    /*box-shadow: var(--shadow-2);*/
+    background: #fff;
+    border-bottom: 1px solid var(--gray-6);
+    z-index: 50;
+}
