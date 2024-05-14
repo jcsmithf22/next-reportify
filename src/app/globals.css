@@ -16,11 +16,11 @@ a {
 /*    background: var(--base-background);*/
 /*}*/
 
-/*body:has(:is(.dark, .dark-theme), :is(.dark, .dark-theme) :where(.radix-themes:not(.light, .light-theme))) {*/
-/*    --slate-2: color(display-p3 .095 .098 .105);*/
-/*    --base-background: var(--slate-2);*/
-/*    background: var(--base-background);*/
-/*}*/
+body:has(:is(.dark, .dark-theme), :is(.dark, .dark-theme) :where(.radix-themes:not(.light, .light-theme))) {
+    --slate-1: color(display-p3 .067 .067 .074);
+    --base-background: var(--slate-1);
+    background: var(--base-background);
+}
 
 /*!*body {*!*/
 /*    background: var(--base-background);*/
