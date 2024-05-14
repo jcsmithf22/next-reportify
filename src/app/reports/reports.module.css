@@ -9,7 +9,7 @@
 }
 
 .TableHeader {
-    --table-row-background-color: #fff;
+    --table-row-background-color: var(--color-background);
 }
 
 .TableHeader th {

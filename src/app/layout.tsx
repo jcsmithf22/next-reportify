@@ -47,7 +47,8 @@ export default function RootLayout({
           accentColor="jade"
           grayColor="slate"
           radius="large"
-          hasBackground={false}
+          appearance="dark"
+          // hasBackground={false}
         >
           <NavigationBar />
           <SideBar />
