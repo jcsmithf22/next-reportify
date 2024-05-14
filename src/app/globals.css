@@ -11,16 +11,16 @@ a {
     box-sizing: border-box;
 }
 
-body:has(:where(.radix-themes :where(.radix-themes:not(.dark, .dark-theme)))) {
-    --base-background: var(--gray-2);
-    background: var(--base-background);
-}
+/*body:has(:where(.radix-themes:not(.dark, .dark-theme))) {*/
+/*    --base-background: var(--gray-2);*/
+/*    background: var(--base-background);*/
+/*}*/
 
-body:has(:is(.dark, .dark-theme), :is(.dark, .dark-theme) :where(.radix-themes:not(.light, .light-theme))) {
-    --slate-2: color(display-p3 .095 .098 .105);
-    --base-background: var(--slate-2);
-    background: var(--base-background);
-}
+/*body:has(:is(.dark, .dark-theme), :is(.dark, .dark-theme) :where(.radix-themes:not(.light, .light-theme))) {*/
+/*    --slate-2: color(display-p3 .095 .098 .105);*/
+/*    --base-background: var(--slate-2);*/
+/*    background: var(--base-background);*/
+/*}*/
 
 /*!*body {*!*/
 /*    background: var(--base-background);*/
@@ -36,10 +36,9 @@ body:has(:is(.dark, .dark-theme), :is(.dark, .dark-theme) :where(.radix-themes:n
     /*--font-weight-bold: 600;*/
 }
 
-/*:where(.radix-themes) {*/
-/*    --base-background: var(--gray-2);*/
-/*    --base-background: var(--color-background);*/
-/*}*/
+:where(.radix-themes) {
+    --base-background: var(--gray-2);
+}
 
 :is(.dark, .dark-theme), :is(.dark, .dark-theme) :where(.radix-themes:not(.light, .light-theme)) {
     --base-background: var(--gray-2);
