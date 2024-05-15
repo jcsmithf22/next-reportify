@@ -1,15 +1,12 @@
 "use client";
 
 import {
-  Box,
   Button,
   Checkbox,
   Container,
   Flex,
-  Grid,
   Heading,
   IconButton,
-  Inset,
   Section,
   Table,
   VisuallyHidden,
@@ -19,14 +16,15 @@ import { Link } from "@/components/Link";
 import { ReportDropdown } from "@/components/ReportCard/ReportDropdown";
 import styles from "./reports.module.css";
 import React from "react";
-import { GearIcon, MixerHorizontalIcon } from "@radix-ui/react-icons";
+import { GearIcon } from "@radix-ui/react-icons";
+import { FilterButton } from "@/components/FilterButton";
 
 const reportState = reports.map((report) => ({
   ...report,
   checked: false,
 }));
 
-export default function Home() {
+export default function Reports() {
   // Move to row component
   const [reports, setReports] = React.useState(reportState);
   const [allSelected, setAllSelected] = React.useState(false);
@@ -55,9 +53,7 @@ export default function Home() {
           <Heading>Reports</Heading>
           <Flex gap="1">
             <Button variant="solid">Create Report</Button>
-            <IconButton variant="soft" color="gray">
-              <MixerHorizontalIcon />
-            </IconButton>
+            <FilterButton />
             <IconButton variant="soft" color="gray">
               <GearIcon />
             </IconButton>
@@ -120,7 +116,7 @@ export default function Home() {
                   </Flex>
                 </Table.RowHeaderCell>
                 <Table.Cell>
-                  <Link href="#">{report.name}</Link>
+                  <Link href={`/reports/${report.id}`}>{report.name}</Link>
                 </Table.Cell>
                 <Table.Cell>{report.owner}</Table.Cell>
                 <Table.Cell>{report.due_date}</Table.Cell>

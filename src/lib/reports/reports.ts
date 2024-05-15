@@ -137,3 +137,7 @@ export const getOwnerInitials = (name: string): string => {
     .map((letter) => letter.toUpperCase()[0])
     .join("");
 };
+
+export const getReport = (id: number) => {
+  return reports.find((report) => report.id === id);
+};

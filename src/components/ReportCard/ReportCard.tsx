@@ -25,7 +25,7 @@ export const ReportCard = ({ report }: { report: ReportType }) => {
             />
             <Box overflow="clip" flexGrow="1">
               <StyledLink asChild>
-                <Link href="#">
+                <Link href={`/reports/${report.id}`}>
                   <Tooltip content={report.name}>
                     <Text as="div" size="2" weight="medium" truncate>
                       {report.name}
@@ -49,7 +49,7 @@ const ReportContextMenu = ({ children }: React.PropsWithChildren) => {
   return (
     <ContextMenu.Root>
       <ContextMenu.Trigger>{children}</ContextMenu.Trigger>
-      <ContextMenu.Content>
+      <ContextMenu.Content variant="soft">
         <ContextMenu.Item shortcut="⌘ E">Edit</ContextMenu.Item>
         <ContextMenu.Item shortcut="⌘ D">Duplicate</ContextMenu.Item>
         <ContextMenu.Separator />

@@ -13,7 +13,7 @@ export const ReportDropdown = ({ horizontal = false }: Props) => {
           {horizontal ? <DotsHorizontalIcon /> : <DotsVerticalIcon />}
         </IconButton>
       </DropdownMenu.Trigger>
-      <DropdownMenu.Content>
+      <DropdownMenu.Content variant="soft">
         <DropdownMenu.Item shortcut="⌘ E">Edit</DropdownMenu.Item>
         <DropdownMenu.Item shortcut="⌘ D">Duplicate</DropdownMenu.Item>
         <DropdownMenu.Separator />
