@@ -49,7 +49,7 @@ export default function Reports() {
       pl={{ initial: "4", sm: "6", md: "282px" }}
     >
       <Section pt="80px">
-        <Flex my="4" justify="between" align="center">
+        <Flex wrap="wrap" gap="6" my="4" justify="between" align="center">
           <Heading my="0">Reports</Heading>
           <Flex gap="1">
             <Button variant="solid">Create Report</Button>
