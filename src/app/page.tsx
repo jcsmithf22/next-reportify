@@ -11,25 +11,37 @@ export default function Home() {
       px={{ initial: "4", sm: "6" }}
       pl={{ initial: "4", sm: "6", md: "282px" }}
     >
-      <Section pb="0">
+      <Section pt="80px" pb="0">
         <Heading>Pinned</Heading>
-        <Grid columns={{ initial: "1", sm: "2", md: "3", lg: "4" }} gap="4">
+        <Grid
+          mt="6"
+          columns={{ initial: "1", sm: "2", md: "3", lg: "4" }}
+          gap="4"
+        >
           {reports.map((report) => (
             <ReportCard key={report.id} report={report} />
           ))}
         </Grid>
       </Section>
-      <Section pb="0">
+      <Section pb="0" pt="6">
         <Heading>Recent</Heading>
-        <Grid columns={{ initial: "1", sm: "2", md: "3", lg: "4" }} gap="4">
+        <Grid
+          mt="6"
+          columns={{ initial: "1", sm: "2", md: "3", lg: "4" }}
+          gap="4"
+        >
           {reports.map((report) => (
             <ReportCard key={report.id} report={report} />
           ))}
         </Grid>
       </Section>
-      <Section>
+      <Section pt="6">
         <Heading>Pending Actions</Heading>
-        <Grid columns={{ initial: "1", sm: "2", md: "3", lg: "4" }} gap="4">
+        <Grid
+          mt="6"
+          columns={{ initial: "1", sm: "2", md: "3", lg: "4" }}
+          gap="4"
+        >
           {reports.map((report) => (
             <ReportCard key={report.id} report={report} />
           ))}

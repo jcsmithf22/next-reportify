@@ -3,13 +3,19 @@ import { DotsVerticalIcon, DotsHorizontalIcon } from "@radix-ui/react-icons";
 
 interface Props {
   horizontal?: boolean;
+  variant?: "soft" | "solid" | "ghost" | "classic" | "surface" | "outline";
+  color?: "gray";
 }
 
-export const ReportDropdown = ({ horizontal = false }: Props) => {
+export const ReportDropdown = ({
+  horizontal = false,
+  variant = "ghost",
+  color,
+}: Props) => {
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger>
-        <IconButton variant="ghost">
+        <IconButton variant={variant} color={color}>
           {horizontal ? <DotsHorizontalIcon /> : <DotsVerticalIcon />}
         </IconButton>
       </DropdownMenu.Trigger>

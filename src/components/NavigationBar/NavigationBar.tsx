@@ -5,8 +5,9 @@ import Image from "next/image";
 export const NavigationBar = () => {
   return (
     <Flex
-      py="2"
+      // py="2"
       px="3"
+      height="3rem"
       className={styles.NavigationBarRoot}
       align="center"
       position="fixed"

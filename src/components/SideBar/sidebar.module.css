@@ -5,15 +5,15 @@
     font-size: var(--font-size-2);
 
     &:hover {
-        background: var(--accent-a3);
+        background: var(--accent-a4);
     }
 }
 
 .ActiveLink {
-    background: var(--accent-a4);
+    background: var(--accent-a5);
 
     &:hover {
-        background: var(--accent-a4);
+        background: var(--accent-a5);
     }
 }
 

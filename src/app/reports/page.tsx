@@ -16,8 +16,8 @@ import { Link } from "@/components/Link";
 import { ReportDropdown } from "@/components/ReportCard/ReportDropdown";
 import styles from "./reports.module.css";
 import React from "react";
-import { GearIcon } from "@radix-ui/react-icons";
-import { FilterButton } from "@/components/FilterButton";
+import { GearIcon, ListBulletIcon } from "@radix-ui/react-icons";
+import { FilterButton } from "@/components/FilterButton/FilterButton";
 
 const reportState = reports.map((report) => ({
   ...report,
@@ -48,18 +48,21 @@ export default function Reports() {
       px={{ initial: "4", sm: "6" }}
       pl={{ initial: "4", sm: "6", md: "282px" }}
     >
-      <Section>
-        <Flex justify="between" align="center">
-          <Heading>Reports</Heading>
+      <Section pt="80px">
+        <Flex my="4" justify="between" align="center">
+          <Heading my="0">Reports</Heading>
           <Flex gap="1">
             <Button variant="solid">Create Report</Button>
             <FilterButton />
+            <Button variant="soft" color="gray">
+              <ListBulletIcon /> Sort
+            </Button>
             <IconButton variant="soft" color="gray">
               <GearIcon />
             </IconButton>
           </Flex>
         </Flex>
-        <Table.Root variant="surface" className={styles.TableRoot}>
+        <Table.Root mt="6" variant="surface" className={styles.TableRoot}>
           <Table.Header className={styles.TableHeader}>
             <Table.Row>
               <Table.ColumnHeaderCell className={styles.ActionCell}>
@@ -95,7 +98,7 @@ export default function Reports() {
               <Table.Row
                 key={report.id}
                 style={{
-                  background: report.checked ? "var(--accent-a2" : "inherit",
+                  background: report.checked ? "var(--accent-a3" : "inherit",
                 }}
               >
                 <Table.RowHeaderCell className={styles.ActionCell}>
