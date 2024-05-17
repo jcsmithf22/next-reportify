@@ -4,3 +4,14 @@
     border-bottom: 1px solid var(--gray-6);
     z-index: 50;
 }
+
+.HomeLink {
+    cursor: pointer;
+}
+
+.MobileMenu {
+    border-radius: 0;
+    max-width: none;
+    background: var(--color-panel-translucent);
+    backdrop-filter: var(--backdrop-filter-panel);
+}

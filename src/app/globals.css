@@ -49,3 +49,14 @@ body:has(:is(.dark, .dark-theme), :is(.dark, .dark-theme) :where(.radix-themes:n
     background: var(--base-background);
 }
 
+.rt-BaseDialogOverlay:before {
+    display: none;
+}
+
+@media screen and (min-width: 520px) {
+    .rt-BaseDialogOverlay:before {
+        display: block;
+        left: 250px;
+    }
+
+}

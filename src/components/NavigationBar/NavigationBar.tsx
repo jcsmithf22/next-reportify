@@ -1,7 +1,22 @@
-import { Flex, Text } from "@radix-ui/themes";
+"use client";
+
+import {
+  Box,
+  Button,
+  Dialog,
+  Flex,
+  IconButton,
+  Text,
+  TextField,
+} from "@radix-ui/themes";
 import styles from "./navigationbar.module.css";
 import Image from "next/image";
 import { ThemeButton } from "@/components/ThemeButton";
+import Link from "next/link";
+import { HamburgerMenuIcon } from "@radix-ui/react-icons";
+import { MobileSideBar } from "@/components/SideBar/SideBar";
+import { usePathname } from "next/navigation";
+import React from "react";
 
 export const NavigationBar = () => {
   return (
@@ -18,6 +33,9 @@ export const NavigationBar = () => {
       width="100%"
     >
       <Flex align="center">
+        <Box mr="3" display={{ initial: "block", md: "none" }}>
+          <MobileMenu />
+        </Box>
         <svg id="svg" width="26" height="26" viewBox="0, 0, 400,400">
           <g id="svgg">
             <path
@@ -29,11 +47,46 @@ export const NavigationBar = () => {
             ></path>
           </g>
         </svg>
-        <Text size="4" weight="medium" ml="1">
-          Reportify
+        <Text asChild size="4" weight="medium" ml="1">
+          <Link className={styles.HomeLink} href="/">
+            Reportify
+          </Link>
         </Text>
       </Flex>
       <ThemeButton />
     </Flex>
+  );
+};
+
+const MobileMenu = () => {
+  const [menuOpen, setMenuOpen] = React.useState(false);
+  const pathname = usePathname();
+
+  React.useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
+  return (
+    <Dialog.Root onOpenChange={setMenuOpen} open={menuOpen}>
+      <Dialog.Trigger>
+        <IconButton variant="soft">
+          <HamburgerMenuIcon />
+        </IconButton>
+      </Dialog.Trigger>
+
+      <Dialog.Content asChild>
+        <Box
+          position="fixed"
+          top="0"
+          left="0"
+          bottom="0"
+          width={{ initial: "100vw", xs: "250px" }}
+          p="0"
+          className={styles.MobileMenu}
+        >
+          <MobileSideBar />
+        </Box>
+      </Dialog.Content>
+    </Dialog.Root>
   );
 };
