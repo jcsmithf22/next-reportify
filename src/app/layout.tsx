@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "color(display-p3 0.067 0.067 0.074)",
+  themeColor: "#ffffff",
 };
 
 type Theme = "light" | "dark";
@@ -46,6 +46,19 @@ export default function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                if (localStorage.theme === 'dark' || ((!('theme' in localStorage) || localStorage.theme === 'system') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                  document.querySelector('meta[name="theme-color"]').setAttribute('content', 'color(display-p3 0.067 0.067 0.074)')
+                }
+              } catch (_) {}
+            `,
+          }}
+        />
+      </head>
       <body
         className={clsx(
           mainFont.variable,

@@ -22,13 +22,25 @@ const findNextTheme = (theme: string | undefined) => {
 
 export const ThemeButton = () => {
   const [mounted, setMounted] = React.useState(false);
-  const { theme, setTheme } = useTheme();
+  const { theme, resolvedTheme, setTheme } = useTheme();
 
   const nextTheme = findNextTheme(theme);
 
   React.useEffect(() => {
     setMounted(true);
   });
+
+  React.useEffect(() => {
+    if (resolvedTheme === "dark") {
+      document
+        .querySelector('meta[name="theme-color"]')!
+        .setAttribute("content", "color(display-p3 0.067 0.067 0.074)");
+    } else {
+      document
+        .querySelector('meta[name="theme-color"]')!
+        .setAttribute("content", "#ffffff");
+    }
+  }, [resolvedTheme]);
 
   if (!mounted) {
     return (
