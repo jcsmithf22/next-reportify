@@ -26,7 +26,7 @@
 .AccordionItem:focus-within {
     position: relative;
     z-index: 1;
-    box-shadow: 0 0 0 1px var(--accent-a6);
+    box-shadow: 0 0 0 2px var(--accent-a6);
 }
 
 .AccordionHeader {

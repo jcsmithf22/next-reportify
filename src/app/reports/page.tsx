@@ -119,14 +119,16 @@ export default function Reports() {
                   </Flex>
                 </Table.RowHeaderCell>
                 <Table.Cell>
-                  <Link href={`/reports/${report.id}`}>{report.name}</Link>
+                  <Link className={styles.Link} href={`/reports/${report.id}`}>
+                    {report.name}
+                  </Link>
                 </Table.Cell>
                 <Table.Cell>{report.owner}</Table.Cell>
                 <Table.Cell>{report.due_date}</Table.Cell>
                 <Table.Cell>{report.created_date}</Table.Cell>
                 <Table.Cell>{report.edited_date}</Table.Cell>
                 <Table.Cell className={styles.ActionCell}>
-                  <ReportDropdown horizontal />
+                  <ReportDropdown horizontal color="gray" />
                 </Table.Cell>
               </Table.Row>
             ))}

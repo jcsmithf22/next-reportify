@@ -15,3 +15,8 @@
 .TableHeader th {
     font-weight: 600;
 }
+
+.Link {
+    /*color: var(--gray-12);*/
+    /*text-decoration-color: var(--gray-9);*/
+}

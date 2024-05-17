@@ -16,6 +16,7 @@ import {
 } from "@radix-ui/react-icons";
 import React from "react";
 import styles from "./filterbutton.module.css";
+import { useMutativeReducer } from "use-mutative";
 
 type Filter = {
   id: number;
@@ -24,11 +25,12 @@ type Filter = {
   value: string;
 };
 
-const defaultFilter = {
+const defaultFilter = () => ({
+  id: Math.random(),
   column: "name",
   comparison: "=",
   value: "",
-};
+});
 
 export const FilterButton = () => {
   const [filters, setFilters] = React.useState<Array<Filter>>([]);
@@ -68,30 +70,34 @@ interface ChangeAction {
 
 type Action = NewFilterAction | DeleteFilterAction | ChangeAction;
 
-const reducer = (filters: Array<Filter>, action: Action): Array<Filter> => {
+const reducer = (filters: Array<Filter>, action: Action) => {
   switch (action.type) {
     case "new-filter": {
-      return [...filters, { ...defaultFilter, id: Math.random() }];
+      return void filters.push(defaultFilter());
     }
     case "delete-filter": {
       return filters.filter((filter) => filter.id !== action.id);
     }
     case "change-column": {
-      return filters.map((filter) =>
-        filter.id === action.id ? { ...filter, column: action.value } : filter,
-      );
+      const filter = filters.find((filter) => filter.id === action.id);
+      if (filter) {
+        filter.column = action.value;
+      }
+      return;
     }
     case "change-comparison": {
-      return filters.map((filter) =>
-        filter.id === action.id
-          ? { ...filter, comparison: action.value }
-          : filter,
-      );
+      const filter = filters.find((filter) => filter.id === action.id);
+      if (filter) {
+        filter.comparison = action.value;
+      }
+      return;
     }
     case "change-value": {
-      return filters.map((filter) =>
-        filter.id === action.id ? { ...filter, value: action.value } : filter,
-      );
+      const filter = filters.find((filter) => filter.id === action.id);
+      if (filter) {
+        filter.value = action.value;
+      }
+      return;
     }
     default: {
       return filters;
@@ -108,7 +114,7 @@ const FilterContent = ({
   applyFilters,
   initialFilters,
 }: FilterContentProps) => {
-  const [filters, dispatch] = React.useReducer(reducer, initialFilters);
+  const [filters, dispatch] = useMutativeReducer(reducer, initialFilters);
 
   const unchanged = JSON.stringify(filters) === JSON.stringify(initialFilters);
 

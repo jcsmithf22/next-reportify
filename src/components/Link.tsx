@@ -2,10 +2,21 @@ import { Link as RadixLink } from "@radix-ui/themes";
 import NextLink, { LinkProps } from "next/link";
 import React from "react";
 
-export const Link = (props: React.PropsWithChildren<LinkProps>) => {
+interface CustomLinkProps extends React.PropsWithChildren<LinkProps> {
+  color?: "gray" | "jade";
+  className?: string;
+}
+
+export const Link = ({
+  color = "jade",
+  className,
+  ...props
+}: CustomLinkProps) => {
   return (
-    <RadixLink asChild>
-      <NextLink {...props}>{props.children}</NextLink>
+    <RadixLink color={color} asChild>
+      <NextLink className={className} {...props}>
+        {props.children}
+      </NextLink>
     </RadixLink>
   );
 };
